@@ -1,8 +1,8 @@
 <div class="container">
-    <div class="card text-center">
-      <h5>Create a new Profile</h5>
+    <div class="card">
+      <h3 class="text-center">Create a new Profile</h3>
       <div class="card-body">
-        <div class="section">
+        <div class="d-flex flex-row justify-content-between bd-highlight order-5">
           <div class="span">
             <label>First Name</label>
             <input type="text" class="form-control"  [formControl]="firstName"  required minlength="2" maxlength="20"/>
@@ -18,7 +18,7 @@
             <div class="text-danger">{{errorLastName}}</div>
           </div>
         </div>
-        <div class="section">
+        <div class="d-flex flex-row justify-content-between bd-highlight order-5">
           <div class="span">
             <label>Email Id</label>
             <input type="text" class="form-control" [formControl]="email"/>
@@ -30,7 +30,7 @@
             <div class="text-danger">{{errorPhone}}</div>
           </div>
         </div>
-        <div class="section">
+        <div class="d-flex flex-row justify-content-between bd-highlight order-5">
           <div class="span">
             <label>Domain</label>
             <select class="form-control" [formControl]="domain">
@@ -44,7 +44,7 @@
           </select>
           </div>
         </div>
-        <div class="section">
+        <div class="d-flex flex-row justify-content-between bd-highlight order-5">
           <div class="span">
             <label>Resume Source</label>
             <select class="form-control" [formControl]="rsource">
@@ -58,13 +58,13 @@
           </select>
           </div>
         </div>
-        <div class="section">
+        <div class="d-flex flex-row justify-content-between bd-highlight order-5">
           <div class="span">
-            <label>Rectruiter</label>
+            <label>Rectuiter</label>
             <input type="text" class="form-control" [formControl]="hr">
           </div>
           <div class="span">
-            <button type="button" class="btn btn-secondary" (click)="addProfile()">Submit</button>
+            <button type="button" class="btn btn-secondary" style="margin:18px" (click)="addProfile()">Submit</button>
           </div>
         </div>
       </div>

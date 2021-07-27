@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { APIResponse, APIResponseSingle, InternalError, Profile } from '../profile.modal';
+import { Router, ActivatedRoute } from '@angular/router'; 
+import {  APIResponseSingle, InternalError, Profile } from '../profile.modal';
 import { ProfileService } from '../profile.service';
 
 @Component({
@@ -26,7 +27,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private profileService:ProfileService
+    private profileService:ProfileService,
+    private router: Router
     ) { }
  
   errorFirstName='';errorLastName='';errorEmail = '';errorPhone='';
@@ -90,8 +92,6 @@ export class ProfileComponent implements OnInit {
   addProfile(){
     let errorFlag:InternalError= this.getErrorMessage();
     if(errorFlag.value){
-      console.log(errorFlag.message)
-      //alert(errorFlag.message);
       return false;
     }else{
       let profile = {
@@ -103,38 +103,23 @@ export class ProfileComponent implements OnInit {
       }
       this.profileService.putProfile(profile).subscribe((response:APIResponseSingle)=>{
         this.profiles.push(response.data)
-        console.log(this.profiles)
       })
+      this.router.navigate(['/'])
       return true;
     }
     
   }
 
-  getProfiles(){
-    this.profileService.getProfiles().subscribe((response:APIResponse)=>{
-      this.profiles = response.data
-      return response;
-  })
-}
 
-deleteProfile(email:String){
-  let profiles = this.profiles;
-  let newArray:Profile[] = [];
-  this.profileService.deleteProfile(email).subscribe((response:APIResponse)=>{
-     profiles.map((profile)=>{
-      if(email != profile.email){
-        newArray.push(profile)
-      }
-    })
-    this.profiles = newArray
-  })
-}
 
 ngOnChange(){
-  this.getProfiles();
+  this.errorEmail ='';
+  this.errorFirstName ='';
+  this.errorPhone='';
+  this.errorLastName = '';
 }
   ngOnInit(){
-    this.getProfiles();
+   
   }
 
 }
