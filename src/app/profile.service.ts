@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Profile, Response,ResponseSingle } from './profile.modal';
+import { Profile, APIResponse,APIResponseSingle } from './profile.modal';
 import { HttpClient } from '@angular/common/http';
 import{tap} from 'rxjs/operators'
 
@@ -15,19 +15,19 @@ export class ProfileService {
 
  
 
-  getProfiles():Observable<Response>{
-   return this.http.get<Response>(`http://localhost:3000/profile`)
+  getProfiles():Observable<APIResponse>{
+   return this.http.get<APIResponse>(`http://localhost:3000/profile`)
   }
 
-  getProfile(email:String):Observable<ResponseSingle>{
-    return this.http.get<ResponseSingle>(`http://localhost:3000/profile/${email}`)
+  getProfile(email:String):Observable<APIResponseSingle>{
+    return this.http.get<APIResponseSingle>(`http://localhost:3000/profile/${email}`)
   }
 
-  putProfile(profile:Profile): Observable<ResponseSingle>{
+  putProfile(profile:Profile): Observable<APIResponseSingle>{
     let headers ={
       'Content-Type':'application/json;charset=utf-8'
     } 
-    return this.http.post<ResponseSingle>(`http://localhost:3000/profile`, profile, {headers})
+    return this.http.post<APIResponseSingle>(`http://localhost:3000/profile`, profile, {headers})
   }
 
   deleteProfile(id:String): Observable<any>{

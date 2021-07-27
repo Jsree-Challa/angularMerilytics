@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="card text-center">
+      <h5>Create a new Profile</h5>
+      <div class="card-body">
+        <div class="section">
+          <div class="span">
+            <label>First Name</label>
+            <input type="text" class="form-control"  [formControl]="firstName"  required minlength="2" maxlength="20"/>
+            <div class="text-danger">{{errorFirstName}}</div>
+          </div>
+          <div class="span">
+            <label>Middle Name</label>
+            <input type="text" class="form-control" [formControl]="middleName" />
+          </div>
+          <div class="span">
+            <label>Last Name</label>
+            <input type="text" class="form-control" [formControl]="lastName" required minlength="2" maxlength="20"/>
+            <div class="text-danger">{{errorLastName}}</div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="span">
+            <label>Email Id</label>
+            <input type="text" class="form-control" [formControl]="email"/>
+            <div class="text-danger">{{errorEmail}}</div>
+          </div>
+          <div class="span">
+           <label>Phone Number:</label>
+            <input type="text" class="form-control" [formControl]="phone" />
+            <div class="text-danger">{{errorPhone}}</div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="span">
+            <label>Domain</label>
+            <select class="form-control" [formControl]="domain">
+              <option>Select</option>
+          </select>
+          </div>
+          <div class="span">
+            <label>Select Role</label>
+            <select class="form-control" [formControl]="role" >
+            <option>Select</option>
+          </select>
+          </div>
+        </div>
+        <div class="section">
+          <div class="span">
+            <label>Resume Source</label>
+            <select class="form-control" [formControl]="rsource">
+              <option>Select</option>
+            </select>
+          </div>
+          <div class="span">
+            <label>Select form to email</label>
+            <select class="form-control" [formControl]="form">
+              <option>Select</option>
+          </select>
+          </div>
+        </div>
+        <div class="section">
+          <div class="span">
+            <label>Rectruiter</label>
+            <input type="text" class="form-control" [formControl]="hr">
+          </div>
+          <div class="span">
+            <button type="button" class="btn btn-secondary" (click)="addProfile()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -8,15 +8,15 @@ export class Profile{
     
 }
 
-export class Response{
+export class APIResponse{
     "error":boolean;
-    "data":Profile[];
+    "data": Profile[];
     "message":string
 }
 
-export class ResponseSingle{
+export class APIResponseSingle{
     "error":boolean;
-    "data":Profile;
+    "data": Profile;
     "message":string
 }
 
